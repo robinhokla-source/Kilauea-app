@@ -1,0 +1,2041 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Mobile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #1f2937 100%);
+        }
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            max-width: 100vw;
+            max-height: 100vh;
+        }
+        .button-glow {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
+  <div class="phone-container gradient-bg rounded-3xl shadow-2xl overflow-hidden relative">
+   <!-- Status Bar -->
+   <div class="flex justify-between items-center px-6 pt-4 pb-2 text-white text-sm font-medium">
+    <span>9:41</span>
+    <div class="flex items-center space-x-1">
+     <div class="w-4 h-2 bg-white rounded-sm opacity-80"></div>
+     <div class="w-6 h-3 border border-white rounded-sm opacity-80">
+      <div class="w-4 h-1 bg-white rounded-sm m-0.5"></div>
+     </div>
+    </div>
+   </div><!-- Background Illustrations -->
+   <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+    <!-- Mountains -->
+    <svg class="absolute bottom-0 left-0 w-full h-64" viewbox="0 0 400 200" fill="none" stroke="white" stroke-width="2">
+     <path d="M0 150 L50 100 L100 120 L150 80 L200 90 L250 60 L300 80 L350 50 L400 70 L400 200 L0 200 Z" /> <path d="M0 170 L80 130 L120 140 L180 110 L240 120 L300 100 L400 110 L400 200 L0 200 Z" />
+    </svg><!-- Trees -->
+    <svg class="absolute bottom-16 left-8 w-16 h-20" viewbox="0 0 40 50" fill="none" stroke="white" stroke-width="1.5">
+     <path d="M20 45 L20 35" /> <path d="M20 35 L10 25 L30 25 Z" /> <path d="M20 30 L8 18 L32 18 Z" /> <path d="M20 25 L6 10 L34 10 Z" />
+    </svg>
+    <svg class="absolute bottom-20 right-12 w-12 h-16" viewbox="0 0 30 40" fill="none" stroke="white" stroke-width="1.5">
+     <path d="M15 35 L15 28" /> <path d="M15 28 L8 20 L22 20 Z" /> <path d="M15 24 L6 14 L24 14 Z" />
+    </svg><!-- Camping Tent -->
+    <svg class="absolute bottom-32 left-16 w-20 h-16" viewbox="0 0 60 40" fill="none" stroke="white" stroke-width="1.5">
+     <path d="M10 35 L30 5 L50 35 Z" /> <path d="M10 35 L50 35" /> <path d="M30 5 L30 35" /> <path d="M20 35 L20 25 L40 25 L40 35" />
+    </svg><!-- Campfire -->
+    <svg class="absolute bottom-28 right-20 w-16 h-16" viewbox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5">
+     <circle cx="20" cy="32" r="6" /> <path d="M14 32 L26 32" /> <path d="M16 28 L24 28" /> <path d="M18 24 L22 24" /> <!-- Fire flames --> <path d="M20 24 Q18 20 20 16 Q22 18 24 14 Q26 16 28 12" /> <path d="M16 26 Q14 22 16 18" /> <path d="M24 26 Q26 22 24 18" />
+    </svg><!-- Person Rappelling -->
+    <svg class="absolute top-32 right-8 w-12 h-20" viewbox="0 0 30 50" fill="none" stroke="white" stroke-width="1.5">
+     <!-- Rope --> <path d="M25 0 L15 45" stroke-dasharray="2,2" /> <!-- Person silhouette --> <circle cx="15" cy="8" r="3" /> <path d="M15 11 L15 25" /> <path d="M15 15 L10 20" /> <path d="M15 15 L20 12" /> <path d="M15 25 L10 35" /> <path d="M15 25 L20 35" /> <!-- Harness --> <path d="M12 20 L18 20" />
+    </svg><!-- Additional tent -->
+    <svg class="absolute bottom-40 right-32 w-16 h-12" viewbox="0 0 50 30" fill="none" stroke="white" stroke-width="1.5">
+     <path d="M8 25 L25 3 L42 25 Z" /> <path d="M8 25 L42 25" /> <path d="M25 3 L25 25" />
+    </svg><!-- Small trees scattered -->
+    <svg class="absolute bottom-24 left-32 w-8 h-10" viewbox="0 0 20 25" fill="none" stroke="white" stroke-width="1">
+     <path d="M10 22 L10 18" /> <path d="M10 18 L6 12 L14 12 Z" /> <path d="M10 15 L4 8 L16 8 Z" />
+    </svg>
+    <svg class="absolute top-48 left-12 w-10 h-12" viewbox="0 0 25 30" fill="none" stroke="white" stroke-width="1">
+     <path d="M12 27 L12 22" /> <path d="M12 22 L7 16 L17 16 Z" /> <path d="M12 19 L5 11 L19 11 Z" />
+    </svg>
+   </div><!-- Login Screen -->
+   <div id="loginScreen" class="flex flex-col items-center justify-center h-full px-8 pb-20 relative z-10">
+    <!-- Logo/Icon -->
+    <div class="mb-12">
+     <div class="w-24 h-24 bg-black rounded-2xl flex items-center justify-center shadow-lg p-2">
+      <img src="https://sg.sdasystems.org/cms/logos_clubes/9819.jpg" alt="Logo KILAUEA" class="w-full h-full object-contain rounded-lg" onerror="this.src=''; this.alt='Logo não disponível'; this.style.display='none';">
+     </div>
+    </div><!-- App Title -->
+    <h1 class="text-4xl font-bold text-white mb-4 text-center">KILAUEA</h1><!-- Subtitle -->
+    <p class="text-orange-100 text-lg text-center mb-16 opacity-90">Bem-vindo a selva</p><!-- Login Form -->
+    <div class="w-full max-w-sm space-y-4">
+     <!-- User/Admin Toggle -->
+     <div class="flex bg-black/20 rounded-xl p-1 border border-orange-500/30">
+      <button id="userTab" onclick="switchLoginType('user')" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 bg-orange-500 text-black"> USUÁRIO </button> <button id="adminTab" onclick="switchLoginType('admin')" class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 text-orange-200 hover:text-white"> ADMIN </button>
+     </div><!-- User Login (Default) -->
+     <div id="userLogin" class="space-y-4">
+      <div>
+       <input type="text" id="userLoginInput" placeholder="Usuário ou E-mail" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+      </div>
+      <div class="relative">
+       <input type="password" id="userPasswordInput" placeholder="Senha" class="w-full px-4 py-3 pr-12 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500"> <button type="button" onclick="togglePasswordVisibility('userPassword', this)" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-orange-300 hover:text-orange-200 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg></button>
+      </div><button onclick="handleLogin('user')" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 button-glow text-lg"> ENTRAR </button>
+      <div class="text-center">
+       <button onclick="abrirCadastro()" class="text-orange-300 hover:text-orange-200 font-medium text-sm underline transition-colors"> Não tem conta? Cadastre-se aqui </button>
+      </div>
+     </div><!-- Admin Login (Hidden by default) -->
+     <div id="adminLogin" class="hidden space-y-4">
+      <div>
+       <input type="text" id="adminUser" placeholder="Usuário administrador" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+      </div>
+      <div class="relative">
+       <input type="password" id="adminPassword" placeholder="Senha" class="w-full px-4 py-3 pr-12 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500"> <button type="button" onclick="togglePasswordVisibility('adminPassword', this)" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-orange-300 hover:text-orange-200 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg></button>
+      </div><button onclick="handleLogin('admin')" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> 🔐 ENTRAR COMO ADMIN </button>
+     </div>
+    </div><!-- Social Login -->
+    <div class="mt-12 w-full max-w-sm">
+     <div class="flex items-center mb-6">
+      <div class="flex-1 h-px bg-orange-500/30"></div><span class="px-4 text-orange-200 text-sm">ou</span>
+      <div class="flex-1 h-px bg-orange-500/30"></div>
+     </div><button onclick="openQRScanner()" class="w-full bg-black/30 border border-orange-500/30 py-6 rounded-xl hover:bg-black/50 transition-all duration-300 transform hover:scale-105"> <!-- QR Code Gate Icon -->
+      <div class="flex flex-col items-center">
+       <svg class="w-16 h-16 text-orange-400 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <!-- Gate/Door Frame --> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21V9l9-6 9 6v12" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9" /> <!-- QR Code Pattern --> <rect x="10" y="13" width="1" height="1" fill="currentColor" /> <rect x="12" y="13" width="1" height="1" fill="currentColor" /> <rect x="13" y="13" width="1" height="1" fill="currentColor" /> <rect x="10" y="15" width="1" height="1" fill="currentColor" /> <rect x="13" y="15" width="1" height="1" fill="currentColor" /> <rect x="11" y="16" width="1" height="1" fill="currentColor" /> <rect x="12" y="16" width="1" height="1" fill="currentColor" /> <rect x="10" y="17" width="1" height="1" fill="currentColor" /> <rect x="13" y="17" width="1" height="1" fill="currentColor" /> <rect x="11" y="18" width="1" height="1" fill="currentColor" /> <rect x="12" y="18" width="1" height="1" fill="currentColor" />
+       </svg><span class="text-orange-200 font-medium text-sm">ESCANEAR QR CODE</span> <span class="text-orange-300 text-xs mt-1">Acesso rápido</span>
+      </div></button>
+    </div>
+   </div><!-- Admin Screen -->
+   <div id="adminScreen" class="hidden flex-col h-full px-6 py-8">
+    <!-- Header with back button -->
+    <div class="flex items-center mb-8">
+     <button onclick="goBack()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Painel Administrativo</h2>
+    </div><!-- Admin Profile -->
+    <div class="flex flex-col items-center mb-8">
+     <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mb-4">
+      <svg class="w-10 h-10 text-white" fill="currentColor" viewbox="0 0 24 24">
+       <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V9M19 9H14V4H5V21H19V9Z" />
+      </svg>
+     </div>
+     <h3 class="text-2xl font-bold text-white mb-2">Administrador</h3>
+     <p class="text-red-200 text-sm">Painel de Controle KILAUEA</p>
+    </div><!-- Admin Menu Buttons -->
+    <div class="flex-1 space-y-4">
+     <button onclick="openAdminSection('gerenciar-recados')" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> 📢 GERENCIAR RECADOS </button> <button onclick="openAdminSection('cadastros-pendentes')" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> 📋 CADASTROS REALIZADOS </button>
+    </div>
+   </div><!-- Profile Screen -->
+   <div id="profileScreen" class="hidden flex-col h-full px-6 py-8">
+    <!-- Header with back button -->
+    <div class="flex items-center mb-8">
+     <button onclick="goBack()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Perfil</h2>
+    </div><!-- Profile Photo -->
+    <div class="flex flex-col items-center mb-8">
+     <div class="relative">
+      <div class="w-32 h-32 bg-black/30 border-4 border-orange-500 rounded-full flex items-center justify-center mb-4 overflow-hidden">
+       <div id="profilePhotoContainer" class="w-24 h-24 bg-gray-600 rounded-full flex items-center justify-center">
+        <svg id="defaultAvatar" class="w-12 h-12 text-gray-400" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg><img id="profilePhoto" class="w-full h-full object-cover rounded-full hidden" alt="Foto do perfil">
+       </div>
+      </div><!-- Edit Button --> <button onclick="editProfilePhoto()" class="absolute bottom-2 right-2 w-10 h-10 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110">
+       <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+       </svg></button> <!-- Hidden file input --> <input type="file" id="profilePhotoInput" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
+     </div><!-- Name -->
+     <h3 class="text-2xl font-bold text-white mb-2">João Silva</h3>
+     <p class="text-orange-200 text-sm">Membro KILAUEA</p>
+    </div><!-- Menu Buttons -->
+    <div class="flex-1 space-y-4">
+     <button onclick="openSection('recados')" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg relative"> 📢 RECADOS <span class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-full">NOVO</span> </button> <button onclick="openSection('ficha-cadastral')" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> FICHA CADASTRAL </button> <button onclick="openSection('ficha-medica')" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> FICHA MÉDICA </button> <button onclick="openSection('carteirinha')" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> CARTEIRINHA </button> <button onclick="openSection('anotacoes')" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> ANOTAÇÕES </button>
+    </div>
+   </div><!-- Ficha Médica Screen -->
+   <div id="fichaMedicaScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToProfile()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Ficha Médica</h2>
+    </div><!-- Form Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+     <!-- Nome Completo -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Nome Completo:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div><!-- Idade e Função -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Idade:</label> <input type="number" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Função:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Estado Civil e Data de Nascimento -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Estado Civil:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="solteiro">Solteiro(a)</option> <option value="casado">Casado(a)</option> <option value="divorciado">Divorciado(a)</option> <option value="viuvo">Viúvo(a)</option> </select>
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Data de Nascimento:</label> <input type="date" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- CPF e RG -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">CPF:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">RG:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Sexo e Plano de Saúde -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Sexo:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="masculino">Masculino</option> <option value="feminino">Feminino</option> </select>
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Plano de Saúde:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Tipo Sanguíneo e Alergia -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Tipo Sanguíneo:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="A+">A+</option> <option value="A-">A-</option> <option value="B+">B+</option> <option value="B-">B-</option> <option value="AB+">AB+</option> <option value="AB-">AB-</option> <option value="O+">O+</option> <option value="O-">O-</option> </select>
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Alergia:</label> <input type="text" placeholder="Descreva as alergias" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Vacinação -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-3">Vacinação:</label>
+      <div class="bg-black/20 border-2 border-dashed border-orange-500/50 rounded-xl p-6 text-center hover:border-orange-500 transition-colors cursor-pointer" onclick="document.getElementById('vacinaInput').click()">
+       <div class="mb-3">
+        <svg class="w-12 h-12 text-orange-400 mx-auto" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+        </svg>
+       </div>
+       <h4 class="text-white font-medium mb-2">Anexar Carteirinha de Vacinação</h4>
+       <p class="text-orange-200 text-sm mb-3">Clique para selecionar foto da carteirinha</p>
+       <p class="text-orange-300 text-xs">Formatos aceitos: JPG, PNG</p>
+      </div><input type="file" id="vacinaInput" accept=".jpg,.jpeg,.png" class="hidden" onchange="handleVacinaUpload(event)"> <!-- Preview da Vacina -->
+      <div id="vacinaPreviewArea" class="mt-4 hidden">
+       <div class="bg-black/20 border border-orange-500/30 rounded-xl p-3">
+        <div class="flex items-center justify-between mb-2">
+         <h5 class="text-white font-medium text-sm">Carteirinha Anexada:</h5><button onclick="removeVacina()" class="text-red-400 hover:text-red-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg></button>
+        </div>
+        <div id="vacinaPreview" class="text-orange-200 text-sm mb-3"></div>
+        <div id="vacinaImagePreview" class="hidden">
+         <img id="vacinaPreviewImg" class="w-full h-32 object-cover rounded-lg" alt="Preview">
+        </div>
+       </div>
+      </div>
+     </div><!-- Deficiência Física -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Deficiência Física:</label> <textarea placeholder="Descreva se possui alguma deficiência física" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Alergia a Medicamento -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Alergia a Algum Medicamento:</label> <textarea placeholder="Liste medicamentos que causam alergia" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Problema Cardíaco -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Problema Cardíaco:</label> <textarea placeholder="Descreva problemas cardíacos se houver" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Alguma Fratura -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Alguma Fratura:</label> <textarea placeholder="Histórico de fraturas" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Já Esteve Internado -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Já Esteve Internado? Qual o Motivo?</label> <textarea placeholder="Histórico de internações e motivos" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Já Realizou Cirurgia -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Já Realizou Alguma Cirurgia?</label> <textarea placeholder="Histórico de cirurgias realizadas" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-20 resize-none"></textarea>
+     </div><!-- Observações -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Observações:</label> <textarea placeholder="Informações adicionais importantes, medicamentos em uso, restrições especiais, etc." class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-24 resize-none"></textarea>
+     </div><!-- Informações Adicionais -->
+     <div class="bg-black/20 p-4 rounded-lg border border-orange-500/30 mt-6">
+      <h3 class="text-orange-200 font-medium mb-2">ℹ️ Informações Importantes</h3>
+      <div class="text-orange-100 text-sm space-y-1">
+       <p>• Preencha todos os campos com informações precisas</p>
+       <p>• Em caso de emergência, essas informações serão utilizadas</p>
+       <p>• Mantenha sempre atualizado</p>
+      </div>
+     </div><!-- Botão Salvar -->
+     <div class="pt-4 pb-8">
+      <button onclick="salvarFichaMedica()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105"> SALVAR FICHA MÉDICA </button>
+     </div>
+    </div>
+   </div><!-- Carteirinha Screen -->
+   <div id="carteirinhaScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToProfile()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Carteirinha</h2>
+    </div><!-- Content -->
+    <div class="flex-1 px-6 py-8 flex flex-col items-center justify-center">
+     <!-- Upload Area -->
+     <div class="w-full max-w-sm">
+      <div class="bg-black/20 border-2 border-dashed border-orange-500/50 rounded-xl p-8 text-center hover:border-orange-500 transition-colors cursor-pointer" onclick="document.getElementById('fileInput').click()">
+       <div class="mb-4">
+        <svg class="w-16 h-16 text-orange-400 mx-auto" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+        </svg>
+       </div>
+       <h3 class="text-white font-medium mb-2">Anexar Carteirinha</h3>
+       <p class="text-orange-200 text-sm mb-4">Clique para selecionar arquivo ou foto</p>
+       <p class="text-orange-300 text-xs">Formatos aceitos: JPG, PNG, PDF</p>
+      </div><input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.pdf" class="hidden" onchange="handleFileUpload(event)">
+     </div><!-- Preview Area -->
+     <div id="previewArea" class="w-full max-w-sm mt-6 hidden">
+      <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+       <div class="flex items-center justify-between mb-3">
+        <h4 class="text-white font-medium">Arquivo Selecionado:</h4><button onclick="removeFile()" class="text-red-400 hover:text-red-300">
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+         </svg></button>
+       </div>
+       <div id="filePreview" class="text-orange-200 text-sm mb-4"></div>
+       <div id="imagePreview" class="hidden">
+        <img id="previewImg" class="w-full h-48 object-cover rounded-lg" alt="Preview">
+       </div>
+      </div>
+     </div><!-- Action Buttons -->
+     <div class="w-full max-w-sm mt-8 space-y-3">
+      <button id="uploadBtn" onclick="uploadFile()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed" disabled> ENVIAR CARTEIRINHA </button> <button onclick="takePhoto()" class="w-full bg-black/30 border border-orange-500/30 text-white font-medium py-3 px-6 rounded-xl hover:bg-black/50 transition-all duration-300"> 📷 TIRAR FOTO </button>
+     </div><!-- Instructions -->
+     <div class="w-full max-w-sm mt-6 bg-black/20 border border-orange-500/30 rounded-xl p-4">
+      <h4 class="text-orange-300 font-medium mb-2">📋 Instruções:</h4>
+      <ul class="text-orange-200 text-sm space-y-1">
+       <li>• Foto deve estar nítida e bem iluminada</li>
+       <li>• Certifique-se de que todos os dados estão visíveis</li>
+       <li>• Tamanho máximo: 5MB</li>
+       <li>• Mantenha a carteirinha centralizada na foto</li>
+      </ul>
+     </div>
+    </div>
+   </div><!-- Ficha Cadastral Screen -->
+   <div id="fichaCadastralScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToProfile()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Ficha Cadastral</h2>
+    </div><!-- Form Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+     <!-- Nome Completo -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Nome Completo:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div><!-- Clube e Região -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Clube:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Região:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Igreja e Distrito -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Igreja:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Distrito:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Campo -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Campo:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div><!-- Função -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Função:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div><!-- Data de Nascimento e Idade -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Data de Nascimento:</label> <input type="date" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Idade:</label> <input type="number" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Estado Civil e Sexo -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Estado Civil:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="solteiro">Solteiro(a)</option> <option value="casado">Casado(a)</option> <option value="divorciado">Divorciado(a)</option> <option value="viuvo">Viúvo(a)</option> </select>
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Sexo:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="masculino">Masculino</option> <option value="feminino">Feminino</option> </select>
+      </div>
+     </div><!-- Documentos -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Certidão de Nascimento:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div>
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">RG:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div>
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">CPF:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">CPF do Responsável:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Contato -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Telefone:</label> <input type="tel" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">E-mail:</label> <input type="email" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Endereço -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Endereço:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+     </div>
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Bairro:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">CEP:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div>
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Cidade:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Estado:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Batizado -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Batizado:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="sim">Sim</option> <option value="nao">Não</option> </select>
+     </div><!-- Dados dos Pais -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Nome do Pai:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Telefone do Pai:</label> <input type="tel" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div>
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Nome da Mãe:</label> <input type="text" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Telefone da Mãe:</label> <input type="tel" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div>
+     </div><!-- Status do Seguro e Ativo -->
+     <div class="grid grid-cols-2 gap-3">
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Status do Seguro:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="ativo">Ativo</option> <option value="inativo">Inativo</option> <option value="pendente">Pendente</option> </select>
+      </div>
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Ativo:</label> <select class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="">Selecione</option> <option value="sim">Sim</option> <option value="nao">Não</option> </select>
+      </div>
+     </div><!-- Data do Cadastro -->
+     <div class="bg-black/20 p-4 rounded-lg border border-orange-500/30 mt-6">
+      <h3 class="text-orange-200 font-medium mb-2">Informações do Cadastro</h3>
+      <div class="text-orange-100 text-sm space-y-1">
+       <p><span class="font-medium">Data:</span> <span id="cadastroData"></span></p>
+       <p><span class="font-medium">Hora:</span> <span id="cadastroHora"></span></p>
+       <p><span class="font-medium">Local:</span> Sistema KILAUEA</p>
+      </div>
+     </div><!-- Botão Salvar -->
+     <div class="pt-4 pb-8">
+      <button onclick="salvarFicha()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105"> SALVAR FICHA </button>
+     </div>
+    </div>
+   </div><!-- Recados Screen -->
+   <div id="recadosScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToProfile()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">📢 Recados</h2>
+    </div><!-- Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+     <!-- Recados List -->
+     <div id="recadosList" class="space-y-4">
+      <!-- Sample Recados -->
+      <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+       <div class="flex items-start justify-between mb-2">
+        <div class="flex items-center space-x-2">
+         <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+          <span class="text-black font-bold text-sm">AD</span>
+         </div>
+         <div>
+          <h4 class="text-white font-medium text-sm">Administração</h4>
+          <p class="text-orange-300 text-xs">Hoje, 14:30</p>
+         </div>
+        </div><span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">URGENTE</span>
+       </div>
+       <p class="text-orange-100 text-sm leading-relaxed">🏕️ <strong>Acampamento de Verão 2024</strong><br>
+         Inscrições abertas até 15/12! Não percam essa oportunidade incrível. Vagas limitadas. Mais informações na secretaria.</p>
+       <div class="mt-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4 text-xs text-orange-300">
+         <span>👁️ 45 visualizações</span> <span>❤️ 12 curtidas</span>
+        </div><button onclick="curtirRecado(this)" class="text-orange-400 hover:text-orange-300 transition-colors">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+         </svg></button>
+       </div>
+      </div>
+      <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+       <div class="flex items-start justify-between mb-2">
+        <div class="flex items-center space-x-2">
+         <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-sm">DI</span>
+         </div>
+         <div>
+          <h4 class="text-white font-medium text-sm">Diretoria</h4>
+          <p class="text-orange-300 text-xs">Ontem, 09:15</p>
+         </div>
+        </div><span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">INFO</span>
+       </div>
+       <p class="text-orange-100 text-sm leading-relaxed">📅 <strong>Reunião Mensal</strong><br>
+         Próxima reunião será no sábado às 19h no salão da igreja. Presença obrigatória para todos os líderes de unidade.</p>
+       <div class="mt-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4 text-xs text-orange-300">
+         <span>👁️ 23 visualizações</span> <span>❤️ 8 curtidas</span>
+        </div><button onclick="curtirRecado(this)" class="text-orange-400 hover:text-orange-300 transition-colors">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+         </svg></button>
+       </div>
+      </div>
+      <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+       <div class="flex items-start justify-between mb-2">
+        <div class="flex items-center space-x-2">
+         <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-sm">CO</span>
+         </div>
+         <div>
+          <h4 class="text-white font-medium text-sm">Coordenação</h4>
+          <p class="text-orange-300 text-xs">2 dias atrás</p>
+         </div>
+        </div><span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">EVENTO</span>
+       </div>
+       <p class="text-orange-100 text-sm leading-relaxed">🎯 <strong>Atividade Especial</strong><br>
+         Sábado teremos rapel e tirolesa! Tragam roupas adequadas e não esqueçam do lanche. Encontro às 8h no portão principal.</p>
+       <div class="mt-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4 text-xs text-orange-300">
+         <span>👁️ 67 visualizações</span> <span>❤️ 25 curtidas</span>
+        </div><button onclick="curtirRecado(this)" class="text-orange-400 hover:text-orange-300 transition-colors">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+         </svg></button>
+       </div>
+      </div>
+     </div><!-- Empty State (hidden by default) -->
+     <div id="emptyRecados" class="hidden text-center py-12">
+      <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+       </svg>
+      </div>
+      <h3 class="text-white font-medium mb-2">Nenhum recado ainda</h3>
+      <p class="text-orange-200 text-sm">Os recados da administração aparecerão aqui</p>
+     </div>
+    </div>
+   </div><!-- Admin Gerenciar Recados Screen -->
+   <div id="adminRecadosScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToAdmin()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">📢 Gerenciar Recados</h2>
+     <div class="ml-auto">
+      <button onclick="novoRecadoAdmin()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-1 rounded-lg text-sm transition-all duration-300"> + NOVO RECADO </button>
+     </div>
+    </div><!-- Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+     <!-- Admin Controls -->
+     <div class="bg-black/20 border border-red-500/30 rounded-xl p-4 mb-6">
+      <h3 class="text-red-300 font-bold mb-3">🔧 Controles Administrativos</h3>
+      <div class="grid grid-cols-2 gap-3">
+       <button onclick="moderarRecados()" class="bg-red-500/20 border border-red-500/30 text-red-300 font-medium py-2 px-4 rounded-lg hover:bg-red-500/30 transition-all duration-300 text-sm"> 🛡️ MODERAR </button> <button onclick="estatisticasRecados()" class="bg-blue-500/20 border border-blue-500/30 text-blue-300 font-medium py-2 px-4 rounded-lg hover:bg-blue-500/30 transition-all duration-300 text-sm"> 📊 ESTATÍSTICAS </button>
+      </div>
+     </div><!-- Recados List with Admin Actions -->
+     <div id="adminRecadosList" class="space-y-4">
+      <!-- Sample Admin Recados with Edit/Delete -->
+      <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+       <div class="flex items-start justify-between mb-2">
+        <div class="flex items-center space-x-2">
+         <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-sm">AD</span>
+         </div>
+         <div>
+          <h4 class="text-white font-medium text-sm">Administração</h4>
+          <p class="text-orange-300 text-xs">Hoje, 14:30</p>
+         </div>
+        </div>
+        <div class="flex items-center space-x-2">
+         <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">URGENTE</span> <button onclick="editarRecado(this)" class="text-blue-400 hover:text-blue-300 p-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg></button> <button onclick="excluirRecado(this)" class="text-red-400 hover:text-red-300 p-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg></button>
+        </div>
+       </div>
+       <p class="text-orange-100 text-sm leading-relaxed">🏕️ <strong>Acampamento de Verão 2024</strong><br>
+         Inscrições abertas até 15/12! Não percam essa oportunidade incrível.</p>
+       <div class="mt-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4 text-xs text-orange-300">
+         <span>👁️ 45 visualizações</span> <span>❤️ 12 curtidas</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Admin Gerenciar Usuários Screen -->
+   <div id="adminUsuariosScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToAdmin()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">👥 Gerenciar Usuários</h2>
+    </div><!-- Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+     <!-- Search Bar -->
+     <div class="mb-6">
+      <input type="text" id="searchUsuarios" placeholder="Buscar usuário..." class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500" onkeyup="filtrarUsuarios()">
+     </div><!-- Users List -->
+     <div id="usuariosList" class="space-y-4">
+      <!-- Usuários serão carregados dinamicamente -->
+     </div><!-- Empty State -->
+     <div id="emptyUsuarios" class="hidden text-center py-12">
+      <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+       </svg>
+      </div>
+      <h3 class="text-white font-medium mb-2">Nenhum usuário encontrado</h3>
+      <p class="text-orange-200 text-sm">Os usuários cadastrados aparecerão aqui</p>
+     </div>
+    </div>
+   </div><!-- Admin Cadastros Realizados Screen -->
+   <div id="adminCadastrosScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToAdmin()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">📋 Cadastros Realizados</h2>
+     <div class="ml-auto">
+      <span id="totalCadastros" class="bg-yellow-500 text-black font-bold px-3 py-1 rounded-full text-sm">0</span>
+     </div>
+    </div><!-- Content -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+     <!-- Stats Cards -->
+     <div class="grid grid-cols-2 gap-4 mb-6">
+      <div class="bg-green-500/20 border border-green-500/30 rounded-xl p-4">
+       <h3 class="text-green-300 font-medium text-sm">Cadastros Hoje</h3>
+       <p id="cadastrosHoje" class="text-green-400 text-2xl font-bold">0</p>
+      </div>
+      <div class="bg-blue-500/20 border border-blue-500/30 rounded-xl p-4">
+       <h3 class="text-blue-300 font-medium text-sm">Total Geral</h3>
+       <p id="cadastrosTotal" class="text-blue-400 text-2xl font-bold">0</p>
+      </div>
+     </div><!-- Search Bar -->
+     <div class="mb-6">
+      <input type="text" id="searchCadastros" placeholder="Buscar por nome ou email..." class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500" onkeyup="filtrarCadastros()">
+     </div><!-- Cadastros List -->
+     <div id="cadastrosList" class="space-y-4">
+      <!-- Cadastros serão carregados dinamicamente -->
+     </div><!-- Empty State -->
+     <div id="emptyCadastros" class="hidden text-center py-12">
+      <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+       <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+       </svg>
+      </div>
+      <h3 class="text-white font-medium mb-2">Nenhum cadastro ainda</h3>
+      <p class="text-orange-200 text-sm">Os cadastros realizados aparecerão aqui</p>
+     </div>
+    </div>
+   </div><!-- Modal Novo Recado -->
+   <div id="novoRecadoModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    <div class="bg-gray-900 rounded-xl w-full max-w-md border border-orange-500/30">
+     <div class="flex items-center justify-between p-4 border-b border-orange-500/30">
+      <h3 class="text-white font-bold text-lg">📝 Novo Recado</h3><button onclick="fecharModalRecado()" class="text-orange-400 hover:text-orange-300">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+     </div>
+     <div class="p-4 space-y-4">
+      <!-- Tipo do Recado -->
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Tipo:</label> <select id="tipoRecado" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white focus:outline-none focus:border-orange-500 text-sm"> <option value="info">📋 Informação</option> <option value="urgente">🚨 Urgente</option> <option value="evento">🎯 Evento</option> <option value="aviso">⚠️ Aviso</option> </select>
+      </div><!-- Título -->
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Título:</label> <input type="text" id="tituloRecado" placeholder="Digite o título do recado" class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm">
+      </div><!-- Mensagem -->
+      <div>
+       <label class="block text-orange-200 text-sm font-medium mb-2">Mensagem:</label> <textarea id="mensagemRecado" placeholder="Digite a mensagem do recado..." class="w-full px-3 py-2 bg-black/20 border border-orange-500/30 rounded-lg text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 text-sm h-24 resize-none"></textarea>
+      </div><!-- Botões -->
+      <div class="flex space-x-3 pt-2">
+       <button onclick="fecharModalRecado()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"> Cancelar </button> <button onclick="publicarRecado()" class="flex-1 bg-orange-500 hover:bg-orange-600 text-black font-bold py-2 px-4 rounded-lg transition-all duration-300"> Publicar </button>
+      </div>
+     </div>
+    </div>
+   </div><!-- Cadastro Screen -->
+   <div id="cadastroScreen" class="hidden flex-col h-full px-6 py-8">
+    <!-- Header with back button -->
+    <div class="flex items-center mb-8">
+     <button onclick="voltarParaLogin()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Criar Conta</h2>
+    </div><!-- Cadastro Form -->
+    <div class="flex-1 overflow-y-auto space-y-4">
+     <!-- Nome Completo -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Nome Completo:</label> <input type="text" id="cadastroNome" placeholder="Digite seu nome completo" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- E-mail -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">E-mail:</label> <input type="email" id="cadastroEmail" placeholder="Digite seu e-mail" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- Telefone -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Telefone:</label> <input type="tel" id="cadastroTelefone" placeholder="(11) 99999-9999" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- Data de Nascimento -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Data de Nascimento:</label> <input type="date" id="cadastroDataNasc" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white focus:outline-none focus:border-orange-500">
+     </div><!-- Senha -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Senha:</label> <input type="password" id="cadastroSenha" placeholder="Crie uma senha segura" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- Confirmar Senha -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Confirmar Senha:</label> <input type="password" id="cadastroConfirmarSenha" placeholder="Digite a senha novamente" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- Clube/Igreja -->
+     <div>
+      <label class="block text-orange-200 text-sm font-medium mb-2">Clube/Igreja:</label> <input type="text" id="cadastroClube" placeholder="Nome do seu clube ou igreja" class="w-full px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500">
+     </div><!-- Termos e Condições -->
+     <div class="flex items-start space-x-3 py-4">
+      <input type="checkbox" id="aceitarTermos" class="mt-1 w-4 h-4 text-orange-500 bg-black/20 border-orange-500/30 rounded focus:ring-orange-500"> <label for="aceitarTermos" class="text-orange-200 text-sm"> Eu aceito os <button onclick="mostrarTermos()" class="text-orange-400 underline hover:text-orange-300">termos de uso</button> e <button onclick="mostrarPrivacidade()" class="text-orange-400 underline hover:text-orange-300">política de privacidade</button> </label>
+     </div><!-- Botão Cadastrar -->
+     <div class="pt-4 pb-8">
+      <button onclick="realizarCadastro()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg"> CRIAR CONTA </button>
+     </div><!-- Link para Login -->
+     <div class="text-center pb-4">
+      <button onclick="voltarParaLogin()" class="text-orange-300 hover:text-orange-200 font-medium text-sm underline transition-colors"> Já tem conta? Faça login aqui </button>
+     </div>
+    </div>
+   </div><!-- Anotações Screen -->
+   <div id="anotacoesScreen" class="hidden flex-col h-full">
+    <!-- Header with back button -->
+    <div class="flex items-center px-6 py-4 bg-black/20">
+     <button onclick="goBackToProfile()" class="text-white hover:text-orange-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h2 class="text-xl font-bold text-white ml-4">Anotações</h2>
+    </div><!-- Content -->
+    <div class="flex-1 px-6 py-6 flex flex-col">
+     <!-- Text Area -->
+     <div class="flex-1 mb-6">
+      <label class="block text-orange-200 text-sm font-medium mb-3">Digite suas anotações:</label> <textarea id="anotacoesText" placeholder="Escreva aqui suas anotações, observações, lembretes ou qualquer informação importante..." class="w-full h-full min-h-96 px-4 py-3 bg-black/20 border border-orange-500/30 rounded-xl text-white placeholder-orange-200/50 focus:outline-none focus:border-orange-500 resize-none text-sm leading-relaxed"></textarea>
+     </div><!-- Character Counter -->
+     <div class="mb-4">
+      <p class="text-orange-300 text-xs text-right"><span id="charCount">0</span> caracteres</p>
+     </div><!-- Action Buttons -->
+     <div class="space-y-3">
+      <button onclick="salvarAnotacoes()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105"> SALVAR ANOTAÇÕES </button> <button onclick="limparAnotacoes()" class="w-full bg-red-500/20 border border-red-500/30 text-red-300 font-medium py-3 px-6 rounded-xl hover:bg-red-500/30 transition-all duration-300"> LIMPAR TUDO </button>
+     </div><!-- Info Box -->
+     <div class="mt-4 bg-black/20 border border-orange-500/30 rounded-xl p-4">
+      <h4 class="text-orange-300 font-medium mb-2">💡 Dicas:</h4>
+      <ul class="text-orange-200 text-sm space-y-1">
+       <li>• Use este espaço para anotar informações importantes</li>
+       <li>• Suas anotações são salvas automaticamente</li>
+       <li>• Você pode escrever observações, lembretes ou qualquer texto</li>
+      </ul>
+     </div>
+    </div>
+   </div><!-- Bottom Indicator -->
+   <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2">
+    <div class="w-32 h-1 bg-white/30 rounded-full"></div>
+   </div>
+  </div>
+  <script>
+        let currentUserType = 'user';
+
+        function switchLoginType(type) {
+            const userTab = document.getElementById('userTab');
+            const adminTab = document.getElementById('adminTab');
+            const userLogin = document.getElementById('userLogin');
+            const adminLogin = document.getElementById('adminLogin');
+
+            if (type === 'user') {
+                userTab.classList.add('bg-orange-500', 'text-black');
+                userTab.classList.remove('text-orange-200');
+                adminTab.classList.remove('bg-orange-500', 'text-black');
+                adminTab.classList.add('text-orange-200');
+                
+                userLogin.classList.remove('hidden');
+                adminLogin.classList.add('hidden');
+                currentUserType = 'user';
+            } else {
+                adminTab.classList.add('bg-orange-500', 'text-black');
+                adminTab.classList.remove('text-orange-200');
+                userTab.classList.remove('bg-orange-500', 'text-black');
+                userTab.classList.add('text-orange-200');
+                
+                adminLogin.classList.remove('hidden');
+                userLogin.classList.add('hidden');
+                currentUserType = 'admin';
+            }
+        }
+
+        // Sistema de armazenamento de usuários
+        let usuariosCadastrados = JSON.parse(localStorage.getItem('usuariosCadastrados')) || [];
+        let usuarioLogado = null;
+
+
+
+        function handleLogin(type) {
+            if (type === 'admin') {
+                const username = document.getElementById('adminUser').value;
+                const password = document.getElementById('adminPassword').value;
+
+                // Simple admin validation (in production, use proper authentication)
+                if (username === 'admin' && password === 'kilauea2024') {
+                    // Navigate to admin screen
+                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('adminScreen').classList.remove('hidden');
+                    document.getElementById('adminScreen').classList.add('flex');
+                    alert('Login administrativo realizado com sucesso!');
+                    
+                    // Carregar dados do admin
+                    carregarDadosAdmin();
+                } else {
+                    alert('Usuário ou senha incorretos!');
+                }
+            } else {
+                const userLogin = document.getElementById('userLoginInput').value.trim();
+                const userPassword = document.getElementById('userPasswordInput').value.trim();
+
+                // Validate user input
+                if (!userLogin || !userPassword) {
+                    alert('Por favor, preencha usuário e senha!');
+                    return;
+                }
+
+                // Buscar usuário nos cadastros salvos
+                console.log('Buscando usuário...', { userLogin, userPassword });
+                console.log('Usuários cadastrados:', usuariosCadastrados);
+                
+                // Verificar se existe algum usuário cadastrado com o email ou nome informado
+                const usuarioEncontrado = usuariosCadastrados.find(u => 
+                    u.email.toLowerCase() === userLogin.toLowerCase() || 
+                    u.nome.toLowerCase() === userLogin.toLowerCase()
+                );
+
+                if (!usuarioEncontrado) {
+                    // Usuário não encontrado nos cadastros
+                    alert('❌ Usuário não cadastrado!\n\nEste email/nome não foi encontrado em nossos registros.\nPor favor, cadastre-se primeiro clicando em "Cadastre-se aqui".');
+                    return;
+                }
+
+                // Usuário encontrado, verificar senha
+                if (usuarioEncontrado.senha === userPassword) {
+                    // Verificar se o usuário está ativo
+                    if (!usuarioEncontrado.ativo) {
+                        alert('❌ Usuário inativo!\n\nSua conta foi desativada pelo administrador.\nEntre em contato com a administração para reativar sua conta.');
+                        return;
+                    }
+                    
+                    // Login bem-sucedido
+                    usuarioLogado = usuarioEncontrado;
+                    
+                    // Navigate to user profile screen
+                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('profileScreen').classList.remove('hidden');
+                    document.getElementById('profileScreen').classList.add('flex');
+                    
+                    // Atualizar dados do perfil
+                    atualizarPerfilUsuario(usuarioEncontrado);
+                    alert(`✅ Bem-vindo, ${usuarioEncontrado.nome}!\n\nLogin realizado com sucesso!`);
+                } else {
+                    // Senha incorreta
+                    alert('❌ Senha incorreta!\n\nO usuário foi encontrado, mas a senha está incorreta.\nVerifique sua senha e tente novamente.');
+                }
+            }
+        }
+        
+
+
+
+        function goBack() {
+            // Hide both profile and admin screens
+            document.getElementById('profileScreen').classList.add('hidden');
+            document.getElementById('profileScreen').classList.remove('flex');
+            document.getElementById('adminScreen').classList.add('hidden');
+            document.getElementById('adminScreen').classList.remove('flex');
+            document.getElementById('loginScreen').classList.remove('hidden');
+        }
+
+        function openAdminSection(section) {
+            // Hide admin main screen
+            document.getElementById('adminScreen').classList.add('hidden');
+            document.getElementById('adminScreen').classList.remove('flex');
+
+            if (section === 'gerenciar-recados') {
+                document.getElementById('adminRecadosScreen').classList.remove('hidden');
+                document.getElementById('adminRecadosScreen').classList.add('flex');
+            } else if (section === 'cadastros-pendentes') {
+                document.getElementById('adminCadastrosScreen').classList.remove('hidden');
+                document.getElementById('adminCadastrosScreen').classList.add('flex');
+                carregarCadastros();
+            }
+        }
+
+        function goBackToAdmin() {
+            // Hide all admin sub-screens
+            document.getElementById('adminRecadosScreen').classList.add('hidden');
+            document.getElementById('adminRecadosScreen').classList.remove('flex');
+            document.getElementById('adminCadastrosScreen').classList.add('hidden');
+            document.getElementById('adminCadastrosScreen').classList.remove('flex');
+            
+            // Show admin main screen
+            document.getElementById('adminScreen').classList.remove('hidden');
+            document.getElementById('adminScreen').classList.add('flex');
+        }
+
+        function novoRecadoAdmin() {
+            document.getElementById('novoRecadoModal').classList.remove('hidden');
+        }
+
+        function moderarRecados() {
+            alert('Funcionalidade de moderação em desenvolvimento...');
+        }
+
+        function estatisticasRecados() {
+            alert('📊 Estatísticas dos Recados:\n\n• Total de recados: 15\n• Visualizações totais: 342\n• Curtidas totais: 89\n• Recados urgentes: 3\n• Recados esta semana: 7');
+        }
+
+        function editarRecado(button) {
+            const recadoCard = button.closest('.bg-black\\/20');
+            const titulo = recadoCard.querySelector('strong').textContent;
+            
+            if (confirm(`Deseja editar o recado "${titulo}"?`)) {
+                alert('Funcionalidade de edição em desenvolvimento...');
+            }
+        }
+
+        function excluirRecado(button) {
+            const recadoCard = button.closest('.bg-black\\/20');
+            const titulo = recadoCard.querySelector('strong').textContent;
+            
+            if (confirm(`Tem certeza que deseja excluir o recado "${titulo}"?`)) {
+                recadoCard.style.transition = 'all 0.3s ease';
+                recadoCard.style.transform = 'translateX(-100%)';
+                recadoCard.style.opacity = '0';
+                
+                setTimeout(() => {
+                    recadoCard.remove();
+                    alert('Recado excluído com sucesso!');
+                }, 300);
+            }
+        }
+
+        function verPerfilUsuario(userId) {
+            alert(`Visualizando perfil completo do usuário: ${userId}`);
+        }
+
+        function editarUsuario(userId) {
+            alert(`Editando dados do usuário: ${userId}`);
+        }
+
+        function openSection(section) {
+            if (section === 'recados') {
+                // Navigate to recados screen
+                document.getElementById('profileScreen').classList.add('hidden');
+                document.getElementById('profileScreen').classList.remove('flex');
+                document.getElementById('recadosScreen').classList.remove('hidden');
+                document.getElementById('recadosScreen').classList.add('flex');
+            } else if (section === 'ficha-cadastral') {
+                // Navigate to ficha cadastral screen
+                document.getElementById('profileScreen').classList.add('hidden');
+                document.getElementById('profileScreen').classList.remove('flex');
+                document.getElementById('fichaCadastralScreen').classList.remove('hidden');
+                document.getElementById('fichaCadastralScreen').classList.add('flex');
+                
+                // Set current date and time
+                const now = new Date();
+                const data = now.toLocaleDateString('pt-BR');
+                const hora = now.toLocaleTimeString('pt-BR');
+                
+                document.getElementById('cadastroData').textContent = data;
+                document.getElementById('cadastroHora').textContent = hora;
+            } else if (section === 'carteirinha') {
+                // Navigate to carteirinha screen
+                document.getElementById('profileScreen').classList.add('hidden');
+                document.getElementById('profileScreen').classList.remove('flex');
+                document.getElementById('carteirinhaScreen').classList.remove('hidden');
+                document.getElementById('carteirinhaScreen').classList.add('flex');
+            } else if (section === 'ficha-medica') {
+                // Navigate to ficha medica screen
+                document.getElementById('profileScreen').classList.add('hidden');
+                document.getElementById('profileScreen').classList.remove('flex');
+                document.getElementById('fichaMedicaScreen').classList.remove('hidden');
+                document.getElementById('fichaMedicaScreen').classList.add('flex');
+            } else if (section === 'anotacoes') {
+                // Navigate to anotacoes screen
+                document.getElementById('profileScreen').classList.add('hidden');
+                document.getElementById('profileScreen').classList.remove('flex');
+                document.getElementById('anotacoesScreen').classList.remove('hidden');
+                document.getElementById('anotacoesScreen').classList.add('flex');
+            } else {
+                // Simulate opening other sections
+                alert(`Seção em desenvolvimento...`);
+            }
+        }
+
+        function goBackToProfile() {
+            // Hide all screens
+            document.getElementById('recadosScreen').classList.add('hidden');
+            document.getElementById('recadosScreen').classList.remove('flex');
+            document.getElementById('fichaCadastralScreen').classList.add('hidden');
+            document.getElementById('fichaCadastralScreen').classList.remove('flex');
+            document.getElementById('carteirinhaScreen').classList.add('hidden');
+            document.getElementById('carteirinhaScreen').classList.remove('flex');
+            document.getElementById('fichaMedicaScreen').classList.add('hidden');
+            document.getElementById('fichaMedicaScreen').classList.remove('flex');
+            document.getElementById('anotacoesScreen').classList.add('hidden');
+            document.getElementById('anotacoesScreen').classList.remove('flex');
+            
+            // Show profile screen
+            document.getElementById('profileScreen').classList.remove('hidden');
+            document.getElementById('profileScreen').classList.add('flex');
+        }
+
+        function salvarFicha() {
+            alert('Ficha cadastral salva com sucesso!');
+        }
+
+        function salvarFichaMedica() {
+            alert('Ficha médica salva com sucesso!');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const previewArea = document.getElementById('previewArea');
+                const filePreview = document.getElementById('filePreview');
+                const imagePreview = document.getElementById('imagePreview');
+                const previewImg = document.getElementById('previewImg');
+                const uploadBtn = document.getElementById('uploadBtn');
+                
+                // Show preview area
+                previewArea.classList.remove('hidden');
+                
+                // Display file info
+                filePreview.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                
+                // If it's an image, show preview
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImg.src = e.target.result;
+                        imagePreview.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.classList.add('hidden');
+                }
+                
+                // Enable upload button
+                uploadBtn.disabled = false;
+            }
+        }
+
+        function removeFile() {
+            document.getElementById('fileInput').value = '';
+            document.getElementById('previewArea').classList.add('hidden');
+            document.getElementById('imagePreview').classList.add('hidden');
+            document.getElementById('uploadBtn').disabled = true;
+        }
+
+        function uploadFile() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'ENVIANDO...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = '✓ ENVIADO!';
+                button.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    alert('Carteirinha enviada com sucesso!');
+                    removeFile();
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-orange-500', 'hover:bg-orange-600');
+                }, 1500);
+            }, 2000);
+        }
+
+        function takePhoto() {
+            alert('Funcionalidade de câmera será implementada em breve!');
+        }
+
+        function openQRScanner() {
+            // Check if device supports camera
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('Câmera não disponível neste dispositivo ou navegador.');
+                return;
+            }
+
+            // Create QR Scanner modal
+            const modal = document.createElement('div');
+            modal.id = 'qrScannerModal';
+            modal.className = 'fixed inset-0 bg-black z-50 flex flex-col';
+            modal.innerHTML = `
+                <div class="flex items-center justify-between p-4 bg-black/80">
+                    <h3 class="text-white font-bold text-lg">Scanner QR Code</h3>
+                    <button onclick="closeQRScanner()" class="text-white hover:text-orange-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 relative overflow-hidden">
+                    <video id="qrVideo" class="w-full h-full object-cover" autoplay playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="w-64 h-64 border-4 border-orange-500 rounded-2xl relative">
+                            <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-orange-400 rounded-tl-2xl"></div>
+                            <div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-orange-400 rounded-tr-2xl"></div>
+                            <div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-orange-400 rounded-bl-2xl"></div>
+                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-orange-400 rounded-br-2xl"></div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-0 right-0 text-center">
+                        <p class="text-white bg-black/60 px-4 py-2 rounded-full inline-block">
+                            Posicione o QR Code dentro do quadrado
+                        </p>
+                    </div>
+                </div>
+                <div class="p-4 bg-black/80">
+                    <button onclick="closeQRScanner()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-6 rounded-xl transition-all duration-300">
+                        FECHAR SCANNER
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Start camera
+            startQRCamera();
+        }
+
+        function startQRCamera() {
+            const video = document.getElementById('qrVideo');
+            
+            // Request camera access with back camera preference
+            const constraints = {
+                video: {
+                    facingMode: { ideal: 'environment' }, // Back camera
+                    width: { ideal: 1280 },
+                    height: { ideal: 720 }
+                }
+            };
+
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    window.qrStream = stream; // Store stream for cleanup
+                    
+                    // Simulate QR code detection (in a real app, you'd use a QR code library)
+                    setTimeout(() => {
+                        simulateQRDetection();
+                    }, 3000);
+                })
+                .catch(function(error) {
+                    console.error('Erro ao acessar câmera:', error);
+                    alert('Não foi possível acessar a câmera. Verifique as permissões.');
+                    closeQRScanner();
+                });
+        }
+
+        function simulateQRDetection() {
+            // This simulates QR code detection - in a real app you'd use a library like jsQR
+            const modal = document.getElementById('qrScannerModal');
+            if (modal) {
+                // Add success animation
+                const video = document.getElementById('qrVideo');
+                const overlay = document.createElement('div');
+                overlay.className = 'absolute inset-0 bg-green-500/20 flex items-center justify-center';
+                overlay.innerHTML = `
+                    <div class="bg-green-500 text-white px-6 py-3 rounded-xl font-bold">
+                        ✓ QR Code Detectado!
+                    </div>
+                `;
+                video.parentElement.appendChild(overlay);
+
+                setTimeout(() => {
+                    closeQRScanner();
+                    // Simulate successful login
+                    setTimeout(() => {
+                        document.getElementById('loginScreen').classList.add('hidden');
+                        document.getElementById('profileScreen').classList.remove('hidden');
+                        document.getElementById('profileScreen').classList.add('flex');
+                        alert('Login realizado com sucesso via QR Code!');
+                    }, 500);
+                }, 1500);
+            }
+        }
+
+        function closeQRScanner() {
+            // Stop camera stream
+            if (window.qrStream) {
+                window.qrStream.getTracks().forEach(track => track.stop());
+                window.qrStream = null;
+            }
+
+            // Remove modal
+            const modal = document.getElementById('qrScannerModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function handleVacinaUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const previewArea = document.getElementById('vacinaPreviewArea');
+                const filePreview = document.getElementById('vacinaPreview');
+                const imagePreview = document.getElementById('vacinaImagePreview');
+                const previewImg = document.getElementById('vacinaPreviewImg');
+                
+                // Show preview area
+                previewArea.classList.remove('hidden');
+                
+                // Display file info
+                filePreview.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                
+                // If it's an image, show preview
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImg.src = e.target.result;
+                        imagePreview.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.classList.add('hidden');
+                }
+            }
+        }
+
+        function removeVacina() {
+            document.getElementById('vacinaInput').value = '';
+            document.getElementById('vacinaPreviewArea').classList.add('hidden');
+            document.getElementById('vacinaImagePreview').classList.add('hidden');
+        }
+
+        function salvarAnotacoes() {
+            const text = document.getElementById('anotacoesText').value;
+            if (text.trim()) {
+                alert('Anotações salvas com sucesso!');
+            } else {
+                alert('Digite algo antes de salvar!');
+            }
+        }
+
+        function limparAnotacoes() {
+            if (confirm('Tem certeza que deseja limpar todas as anotações?')) {
+                document.getElementById('anotacoesText').value = '';
+                document.getElementById('charCount').textContent = '0';
+                alert('Anotações limpas!');
+            }
+        }
+
+        // Character counter for anotações
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('anotacoesText');
+            const charCount = document.getElementById('charCount');
+            
+            if (textarea && charCount) {
+                textarea.addEventListener('input', function() {
+                    charCount.textContent = this.value.length;
+                });
+            }
+        });
+
+        function editProfilePhoto() {
+            // Trigger file input click to open gallery
+            document.getElementById('profilePhotoInput').click();
+        }
+
+        function handleProfilePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // Check if it's an image
+                if (!file.type.startsWith('image/')) {
+                    alert('Por favor, selecione apenas arquivos de imagem.');
+                    return;
+                }
+
+                // Check file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('A imagem deve ter no máximo 5MB.');
+                    return;
+                }
+
+                // Read and display the image
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const profilePhoto = document.getElementById('profilePhoto');
+                    const defaultAvatar = document.getElementById('defaultAvatar');
+                    
+                    // Set the image source
+                    profilePhoto.src = e.target.result;
+                    
+                    // Show image and hide default avatar
+                    profilePhoto.classList.remove('hidden');
+                    defaultAvatar.classList.add('hidden');
+                    
+                    // Show success message
+                    showPhotoUpdateSuccess();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function showPhotoUpdateSuccess() {
+            // Create temporary success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300';
+            successMsg.textContent = '✓ Foto atualizada com sucesso!';
+            
+            document.body.appendChild(successMsg);
+            
+            // Animate in
+            setTimeout(() => {
+                successMsg.style.transform = 'translate(-50%, 0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                successMsg.style.transform = 'translate(-50%, -100px)';
+                successMsg.style.opacity = '0';
+                setTimeout(() => {
+                    if (successMsg.parentNode) {
+                        successMsg.parentNode.removeChild(successMsg);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Recados functions
+        function novoRecado() {
+            document.getElementById('novoRecadoModal').classList.remove('hidden');
+        }
+
+        function fecharModalRecado() {
+            document.getElementById('novoRecadoModal').classList.add('hidden');
+            // Clear form
+            document.getElementById('tipoRecado').value = 'info';
+            document.getElementById('tituloRecado').value = '';
+            document.getElementById('mensagemRecado').value = '';
+        }
+
+        function publicarRecado() {
+            const tipo = document.getElementById('tipoRecado').value;
+            const titulo = document.getElementById('tituloRecado').value.trim();
+            const mensagem = document.getElementById('mensagemRecado').value.trim();
+
+            if (!titulo || !mensagem) {
+                alert('Por favor, preencha o título e a mensagem!');
+                return;
+            }
+
+            // Get type info
+            const tipoInfo = {
+                'info': { label: 'INFO', color: 'bg-blue-500', icon: '📋' },
+                'urgente': { label: 'URGENTE', color: 'bg-red-500', icon: '🚨' },
+                'evento': { label: 'EVENTO', color: 'bg-green-500', icon: '🎯' },
+                'aviso': { label: 'AVISO', color: 'bg-yellow-500', icon: '⚠️' }
+            };
+
+            const info = tipoInfo[tipo];
+            const now = new Date();
+            const timeStr = 'Agora';
+
+            // Create new recado element
+            const novoRecadoHTML = `
+                <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                <span class="text-black font-bold text-sm">EU</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-sm">João Silva</h4>
+                                <p class="text-orange-300 text-xs">${timeStr}</p>
+                            </div>
+                        </div>
+                        <span class="${info.color} text-white text-xs px-2 py-1 rounded-full">${info.label}</span>
+                    </div>
+                    <p class="text-orange-100 text-sm leading-relaxed">
+                        ${info.icon} <strong>${titulo}</strong><br>
+                        ${mensagem}
+                    </p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <div class="flex items-center space-x-4 text-xs text-orange-300">
+                            <span>👁️ 1 visualização</span>
+                            <span>❤️ 0 curtidas</span>
+                        </div>
+                        <button onclick="curtirRecado(this)" class="text-orange-400 hover:text-orange-300 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Add to top of list
+            const recadosList = document.getElementById('recadosList');
+            recadosList.insertAdjacentHTML('afterbegin', novoRecadoHTML);
+
+            // Close modal
+            fecharModalRecado();
+
+            // Show success message
+            alert('Recado publicado com sucesso!');
+
+            // Add animation to new recado
+            const newRecado = recadosList.firstElementChild;
+            newRecado.style.transform = 'translateY(-20px)';
+            newRecado.style.opacity = '0';
+            setTimeout(() => {
+                newRecado.style.transition = 'all 0.3s ease';
+                newRecado.style.transform = 'translateY(0)';
+                newRecado.style.opacity = '1';
+            }, 100);
+        }
+
+        function curtirRecado(button) {
+            const recadoCard = button.closest('.bg-black\\/20');
+            const curtidaSpan = recadoCard.querySelector('span:contains("❤️")');
+            
+            if (curtidaSpan) {
+                const currentText = curtidaSpan.textContent;
+                const currentCount = parseInt(currentText.match(/\d+/)[0]);
+                const newCount = currentCount + 1;
+                curtidaSpan.textContent = `❤️ ${newCount} curtidas`;
+                
+                // Add animation
+                button.style.transform = 'scale(1.2)';
+                button.style.color = '#ef4444';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                    button.style.color = '';
+                }, 200);
+                
+                // Show heart animation
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'absolute text-red-500 pointer-events-none animate-bounce';
+                heart.style.fontSize = '20px';
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.transform = 'translate(-50%, -50%)';
+                
+                button.style.position = 'relative';
+                button.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            }
+        }
+
+        function abrirCadastro() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('cadastroScreen').classList.remove('hidden');
+            document.getElementById('cadastroScreen').classList.add('flex');
+        }
+
+        function voltarParaLogin() {
+            document.getElementById('cadastroScreen').classList.add('hidden');
+            document.getElementById('cadastroScreen').classList.remove('flex');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            
+            // Limpar campos do cadastro
+            document.getElementById('cadastroNome').value = '';
+            document.getElementById('cadastroEmail').value = '';
+            document.getElementById('cadastroTelefone').value = '';
+            document.getElementById('cadastroDataNasc').value = '';
+            document.getElementById('cadastroSenha').value = '';
+            document.getElementById('cadastroConfirmarSenha').value = '';
+            document.getElementById('cadastroClube').value = '';
+            document.getElementById('aceitarTermos').checked = false;
+        }
+
+        function realizarCadastro() {
+            // Pegar valores dos campos
+            const nome = document.getElementById('cadastroNome').value.trim();
+            const email = document.getElementById('cadastroEmail').value.trim();
+            const telefone = document.getElementById('cadastroTelefone').value.trim();
+            const dataNasc = document.getElementById('cadastroDataNasc').value;
+            const senha = document.getElementById('cadastroSenha').value;
+            const confirmarSenha = document.getElementById('cadastroConfirmarSenha').value;
+            const clube = document.getElementById('cadastroClube').value.trim();
+            const aceitarTermos = document.getElementById('aceitarTermos').checked;
+
+            // Validações
+            if (!nome || !email || !telefone || !dataNasc || !senha || !confirmarSenha || !clube) {
+                alert('Por favor, preencha todos os campos obrigatórios!');
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert('Por favor, digite um e-mail válido!');
+                return;
+            }
+
+            // Verificar se email já existe
+            if (usuariosCadastrados.find(u => u.email === email)) {
+                alert('Este e-mail já está cadastrado! Use outro e-mail ou faça login.');
+                return;
+            }
+
+            if (senha.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres!');
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            if (!aceitarTermos) {
+                alert('Você deve aceitar os termos de uso e política de privacidade!');
+                return;
+            }
+
+            // Criar objeto do usuário
+            const novoUsuario = {
+                id: Date.now(), // ID único baseado no timestamp
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                dataNascimento: dataNasc,
+                senha: senha,
+                clube: clube,
+                dataCadastro: new Date().toISOString(),
+                ativo: true,
+                ultimoLogin: null
+            };
+
+            // Simular cadastro
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'CRIANDO CONTA...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                // Adicionar usuário à lista
+                usuariosCadastrados.push(novoUsuario);
+                
+                // Salvar no localStorage
+                localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
+                
+                button.textContent = '✓ CONTA CRIADA!';
+                button.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    alert(`Conta criada com sucesso, ${nome}! Você já pode fazer login com seu e-mail e senha.`);
+                    voltarParaLogin();
+                    
+                    // Restaurar botão
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-orange-500', 'hover:bg-orange-600');
+                    button.disabled = false;
+                }, 1500);
+            }, 2000);
+        }
+
+        function mostrarTermos() {
+            alert('📋 TERMOS DE USO\n\n• Você concorda em usar o aplicativo de forma responsável\n• Suas informações serão mantidas em segurança\n• É proibido compartilhar dados de outros usuários\n• O uso inadequado pode resultar em suspensão da conta\n• Estes termos podem ser atualizados periodicamente');
+        }
+
+        function mostrarPrivacidade() {
+            alert('🔒 POLÍTICA DE PRIVACIDADE\n\n• Coletamos apenas informações necessárias para o funcionamento\n• Seus dados não são compartilhados com terceiros\n• Você pode solicitar a exclusão de seus dados a qualquer momento\n• Utilizamos criptografia para proteger informações sensíveis\n• Cookies são usados apenas para melhorar a experiência');
+        }
+
+        function togglePasswordVisibility(inputId, button) {
+            const input = document.getElementById(inputId);
+            const svg = button.querySelector('svg');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                // Change to "eye-off" icon
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                `;
+            } else {
+                input.type = 'password';
+                // Change back to "eye" icon
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                `;
+            }
+        }
+
+        // Funções administrativas
+        function carregarDadosAdmin() {
+            // Atualizar contadores
+            atualizarEstatisticas();
+        }
+
+        function carregarUsuarios() {
+            const usuariosList = document.getElementById('usuariosList');
+            const emptyUsuarios = document.getElementById('emptyUsuarios');
+            
+            if (usuariosCadastrados.length === 0) {
+                usuariosList.innerHTML = '';
+                emptyUsuarios.classList.remove('hidden');
+                return;
+            }
+            
+            emptyUsuarios.classList.add('hidden');
+            
+            usuariosList.innerHTML = usuariosCadastrados.map(usuario => {
+                const iniciais = usuario.nome.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+                const dataCadastro = new Date(usuario.dataCadastro).toLocaleDateString('pt-BR');
+                const cores = ['bg-orange-500', 'bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-pink-500', 'bg-yellow-500'];
+                const cor = cores[usuario.id % cores.length];
+                
+                return `
+                    <div class="bg-black/20 border border-orange-500/30 rounded-xl p-4">
+                        <div class="flex flex-col space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 ${cor} rounded-full flex items-center justify-center">
+                                        <span class="text-white font-bold">${iniciais}</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-medium">${usuario.nome}</h4>
+                                        <p class="text-orange-300 text-sm">${usuario.email}</p>
+                                        <p class="text-orange-200 text-xs">Cadastrado em: ${dataCadastro}</p>
+                                        <p class="text-orange-200 text-xs">Clube: ${usuario.clube}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="desativarUsuario('${usuario.id}')" class="bg-red-500/20 border border-red-500/30 text-red-300 px-3 py-1 rounded-lg text-sm hover:bg-red-500/30">
+                                        ${usuario.ativo ? 'DESATIVAR' : 'ATIVAR'}
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Credenciais de Login -->
+                            <div class="bg-black/30 border border-red-500/30 rounded-lg p-3">
+                                <h5 class="text-red-300 font-medium text-sm mb-2">🔐 Credenciais de Login:</h5>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div>
+                                        <span class="text-orange-300">👤 Login:</span>
+                                        <p class="text-white font-mono bg-black/40 px-2 py-1 rounded text-xs">${usuario.email}</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-orange-300">🔑 Senha:</span>
+                                        <div class="flex items-center space-x-2">
+                                            <p id="senha-${usuario.id}" class="text-white font-mono bg-black/40 px-2 py-1 rounded text-xs flex-1">••••••••</p>
+                                            <button onclick="toggleSenhaVisibilidade('${usuario.id}')" class="text-orange-400 hover:text-orange-300 p-1">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 flex space-x-2">
+                                    <button onclick="alterarLogin('${usuario.id}')" class="bg-blue-500/20 border border-blue-500/30 text-blue-300 px-3 py-1 rounded-lg text-xs hover:bg-blue-500/30 flex-1">
+                                        ALTERAR LOGIN
+                                    </button>
+                                    <button onclick="alterarSenha('${usuario.id}')" class="bg-yellow-500/20 border border-yellow-500/30 text-yellow-300 px-3 py-1 rounded-lg text-xs hover:bg-yellow-500/30 flex-1">
+                                        ALTERAR SENHA
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function carregarCadastros() {
+            const cadastrosList = document.getElementById('cadastrosList');
+            const emptyCadastros = document.getElementById('emptyCadastros');
+            
+            if (usuariosCadastrados.length === 0) {
+                cadastrosList.innerHTML = '';
+                emptyCadastros.classList.remove('hidden');
+                atualizarEstatisticas();
+                return;
+            }
+            
+            emptyCadastros.classList.add('hidden');
+            
+            // Ordenar por data de cadastro (mais recente primeiro)
+            const usuariosOrdenados = [...usuariosCadastrados].sort((a, b) => 
+                new Date(b.dataCadastro) - new Date(a.dataCadastro)
+            );
+            
+            cadastrosList.innerHTML = usuariosOrdenados.map(usuario => {
+                const dataCadastro = new Date(usuario.dataCadastro);
+                const dataFormatada = dataCadastro.toLocaleDateString('pt-BR');
+                const horaFormatada = dataCadastro.toLocaleTimeString('pt-BR');
+                const idade = calcularIdade(usuario.dataNascimento);
+                
+                return `
+                    <div class="bg-black/20 border border-yellow-500/30 rounded-xl p-4">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h4 class="text-white font-bold text-lg">${usuario.nome}</h4>
+                                <p class="text-yellow-300 text-sm">${usuario.email}</p>
+                            </div>
+                            <span class="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold">
+                                ID: ${usuario.id}
+                            </span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                            <div>
+                                <span class="text-orange-300">📞 Telefone:</span>
+                                <p class="text-white">${usuario.telefone}</p>
+                            </div>
+                            <div>
+                                <span class="text-orange-300">🎂 Idade:</span>
+                                <p class="text-white">${idade} anos</p>
+                            </div>
+                            <div>
+                                <span class="text-orange-300">🏛️ Clube:</span>
+                                <p class="text-white">${usuario.clube}</p>
+                            </div>
+                            <div>
+                                <span class="text-orange-300">📅 Cadastro:</span>
+                                <p class="text-white">${dataFormatada}</p>
+                                <p class="text-orange-200 text-xs">${horaFormatada}</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Credenciais de Login -->
+                        <div class="bg-black/30 border border-red-500/30 rounded-lg p-3 mb-3">
+                            <h5 class="text-red-300 font-medium text-sm mb-2">🔐 Credenciais de Acesso:</h5>
+                            <div class="grid grid-cols-2 gap-3 text-sm">
+                                <div>
+                                    <span class="text-orange-300">👤 Login:</span>
+                                    <p class="text-white font-mono bg-black/40 px-2 py-1 rounded text-xs">${usuario.email}</p>
+                                </div>
+                                <div>
+                                    <span class="text-orange-300">🔑 Senha:</span>
+                                    <div class="flex items-center space-x-2">
+                                        <p id="senha-cadastro-${usuario.id}" class="text-white font-mono bg-black/40 px-2 py-1 rounded text-xs flex-1">••••••••</p>
+                                        <button onclick="toggleSenhaCadastroVisibilidade('${usuario.id}')" class="text-orange-400 hover:text-orange-300 p-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex space-x-2">
+                                <button onclick="alterarLogin('${usuario.id}')" class="bg-blue-500/20 border border-blue-500/30 text-blue-300 px-3 py-1 rounded-lg text-xs hover:bg-blue-500/30 flex-1">
+                                    ALTERAR LOGIN
+                                </button>
+                                <button onclick="alterarSenha('${usuario.id}')" class="bg-yellow-500/20 border border-yellow-500/30 text-yellow-300 px-3 py-1 rounded-lg text-xs hover:bg-yellow-500/30 flex-1">
+                                    ALTERAR SENHA
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs px-2 py-1 rounded-full ${usuario.ativo ? 'bg-green-500/20 text-green-300' : 'bg-red-500/20 text-red-300'}">
+                                    ${usuario.ativo ? '✓ ATIVO' : '✗ INATIVO'}
+                                </span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="desativarUsuario('${usuario.id}')" class="bg-red-500/20 border border-red-500/30 text-red-300 px-3 py-1 rounded-lg text-xs hover:bg-red-500/30">
+                                    ${usuario.ativo ? 'DESATIVAR' : 'ATIVAR'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            atualizarEstatisticas();
+        }
+
+        function atualizarEstatisticas() {
+            const total = usuariosCadastrados.length;
+            const hoje = new Date().toDateString();
+            const cadastrosHoje = usuariosCadastrados.filter(u => 
+                new Date(u.dataCadastro).toDateString() === hoje
+            ).length;
+            
+            // Atualizar contadores
+            document.getElementById('totalCadastros').textContent = total;
+            document.getElementById('cadastrosHoje').textContent = cadastrosHoje;
+            document.getElementById('cadastrosTotal').textContent = total;
+        }
+
+        function calcularIdade(dataNascimento) {
+            const hoje = new Date();
+            const nascimento = new Date(dataNascimento);
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            const mes = hoje.getMonth() - nascimento.getMonth();
+            
+            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+                idade--;
+            }
+            
+            return idade;
+        }
+
+        function filtrarUsuarios() {
+            const busca = document.getElementById('searchUsuarios').value.toLowerCase();
+            const usuarios = document.querySelectorAll('#usuariosList > div');
+            
+            usuarios.forEach(usuario => {
+                const texto = usuario.textContent.toLowerCase();
+                if (texto.includes(busca)) {
+                    usuario.style.display = 'block';
+                } else {
+                    usuario.style.display = 'none';
+                }
+            });
+        }
+
+        function filtrarCadastros() {
+            const busca = document.getElementById('searchCadastros').value.toLowerCase();
+            const cadastros = document.querySelectorAll('#cadastrosList > div');
+            
+            cadastros.forEach(cadastro => {
+                const texto = cadastro.textContent.toLowerCase();
+                if (texto.includes(busca)) {
+                    cadastro.style.display = 'block';
+                } else {
+                    cadastro.style.display = 'none';
+                }
+            });
+        }
+
+
+
+        function desativarUsuario(userId) {
+            const usuario = usuariosCadastrados.find(u => u.id == userId);
+            if (usuario) {
+                const acao = usuario.ativo ? 'desativar' : 'ativar';
+                if (confirm(`Tem certeza que deseja ${acao} o usuário ${usuario.nome}?`)) {
+                    usuario.ativo = !usuario.ativo;
+                    localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
+                    carregarUsuarios();
+                    alert(`Usuário ${usuario.ativo ? 'ativado' : 'desativado'} com sucesso!`);
+                }
+            }
+        }
+
+
+
+        function atualizarPerfilUsuario(usuario) {
+            // Atualizar nome no perfil
+            const nomeElements = document.querySelectorAll('#profileScreen h3');
+            if (nomeElements.length > 0) {
+                nomeElements[0].textContent = usuario.nome;
+            }
+            
+            // Atualizar último login
+            usuario.ultimoLogin = new Date().toISOString();
+            localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
+        }
+
+        // Funções para gerenciar credenciais de usuários
+        function toggleSenhaVisibilidade(userId) {
+            const usuario = usuariosCadastrados.find(u => u.id == userId);
+            const senhaElement = document.getElementById(`senha-${userId}`);
+            const button = event.target.closest('button');
+            const svg = button.querySelector('svg');
+            
+            if (senhaElement.textContent === '••••••••') {
+                // Mostrar senha real
+                senhaElement.textContent = usuario.senha;
+                // Mudar ícone para "olho fechado"
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                `;
+            } else {
+                // Ocultar senha
+                senhaElement.textContent = '••••••••';
+                // Mudar ícone para "olho aberto"
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                `;
+            }
+        }
+
+        function toggleSenhaCadastroVisibilidade(userId) {
+            const usuario = usuariosCadastrados.find(u => u.id == userId);
+            const senhaElement = document.getElementById(`senha-cadastro-${userId}`);
+            const button = event.target.closest('button');
+            const svg = button.querySelector('svg');
+            
+            if (senhaElement.textContent === '••••••••') {
+                // Mostrar senha real
+                senhaElement.textContent = usuario.senha;
+                // Mudar ícone para "olho fechado"
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                `;
+            } else {
+                // Ocultar senha
+                senhaElement.textContent = '••••••••';
+                // Mudar ícone para "olho aberto"
+                svg.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                `;
+            }
+        }
+
+        function alterarLogin(userId) {
+            const usuario = usuariosCadastrados.find(u => u.id == userId);
+            if (!usuario) return;
+            
+            const novoLogin = prompt(`🔧 ALTERAR LOGIN DO USUÁRIO\n\nUsuário: ${usuario.nome}\nLogin atual: ${usuario.email}\n\nDigite o novo login (email):`, usuario.email);
+            
+            if (novoLogin && novoLogin.trim() && novoLogin !== usuario.email) {
+                // Verificar se o novo email já existe
+                const emailExiste = usuariosCadastrados.find(u => u.email === novoLogin.trim() && u.id !== usuario.id);
+                
+                if (emailExiste) {
+                    alert('❌ Este email já está sendo usado por outro usuário!');
+                    return;
+                }
+                
+                // Validar formato do email
+                if (!novoLogin.includes('@')) {
+                    alert('❌ Por favor, digite um email válido!');
+                    return;
+                }
+                
+                if (confirm(`Confirma a alteração do login?\n\nDe: ${usuario.email}\nPara: ${novoLogin.trim()}`)) {
+                    usuario.email = novoLogin.trim();
+                    localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
+                    
+                    // Recarregar a lista
+                    if (document.getElementById('adminUsuariosScreen').classList.contains('flex')) {
+                        carregarUsuarios();
+                    } else {
+                        carregarCadastros();
+                    }
+                    
+                    alert('✅ Login alterado com sucesso!');
+                }
+            }
+        }
+
+        function alterarSenha(userId) {
+            const usuario = usuariosCadastrados.find(u => u.id == userId);
+            if (!usuario) return;
+            
+            const novaSenha = prompt(`🔧 ALTERAR SENHA DO USUÁRIO\n\nUsuário: ${usuario.nome}\nLogin: ${usuario.email}\n\nDigite a nova senha (mínimo 6 caracteres):`);
+            
+            if (novaSenha && novaSenha.trim()) {
+                if (novaSenha.length < 6) {
+                    alert('❌ A senha deve ter pelo menos 6 caracteres!');
+                    return;
+                }
+                
+                if (confirm(`Confirma a alteração da senha para o usuário ${usuario.nome}?\n\nNova senha: ${novaSenha}`)) {
+                    usuario.senha = novaSenha;
+                    localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
+                    
+                    // Recarregar a lista
+                    if (document.getElementById('adminUsuariosScreen').classList.contains('flex')) {
+                        carregarUsuarios();
+                    } else {
+                        carregarCadastros();
+                    }
+                    
+                    alert('✅ Senha alterada com sucesso!');
+                }
+            }
+        }
+
+        // Add touch feedback for mobile
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+                e.target.style.transform = 'scale(0.95)';
+            }
+        });
+
+        document.addEventListener('touchend', function(e) {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+                setTimeout(() => {
+                    e.target.style.transform = '';
+                }, 100);
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e8bee0f06a91aef',t:'MTc3NTU5NTI5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
