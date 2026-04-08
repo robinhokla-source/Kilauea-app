@@ -1,8 +1,8 @@
 {
-  "name": "Kilauea",
+  "name": "Kilauea App",
   "short_name": "Kilauea",
   "description": "Sistema de gestão e monitoramento Kilauea.",
-  "start_url": "/Kilauea-app/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff6600",
